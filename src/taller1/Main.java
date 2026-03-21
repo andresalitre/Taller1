@@ -14,7 +14,6 @@ public class Main {
 	private static String[][] listaActividades = new String[300][4];
 	private static String[] listaPosicion = new String[2];
 	
-	
 	public static void main(String[] args) throws FileNotFoundException {
 		guardarListas(listaUsuarios, "Usuarios");
 		guardarListas(listaActividades, "Registros");
@@ -22,7 +21,7 @@ public class Main {
 
 	}
 
-	private static void menu() {
+	private static void menu() { // Menu principal donde estara el login y el menu analisis
 		String eleccion;
 		do {
 		System.out.println("1) Menu de Usuarios\r\n" + "2) Menu de Analisis\r\n" + "3) Salir");
@@ -59,6 +58,11 @@ public class Main {
 }
 
 	private static boolean verificarUsuario(String usuario, String contraseña) {
+		/*funcion que revisa la matriz de usuarios y 
+		contraseñas, y si las credenciales de quien esta ingresando son correctas y se encuentran
+		en el sistema se retorna true, con lo cual ingresa al menu de usuario verificado, en otro caso retorna false y vuelve
+		al menu inicial
+		*/
 		for (String[] cuenta : listaUsuarios) {
 			if (usuario.equals(cuenta[0]) && contraseña.equals(cuenta[1]))
 				listaPosicion = cuenta;
@@ -68,6 +72,9 @@ public class Main {
 	}
 
 	private static void guardarListas(String[][] lista, String archivo) throws FileNotFoundException {
+		/*Esta función guarda en matrices los valores de los archivos, se llama a la matriz y el nombre del archivo
+		 * para guardar en contenido del archivo en la matriz
+		 */
 		Scanner lector = new Scanner(new File(archivo + ".txt"));
 		int i = 0;
 		while (lector.hasNextLine()) {
@@ -79,9 +86,9 @@ public class Main {
 	}
 
 	private static void menuUsuarioVerificado(String usuario) {
+		
+		
 		String opcion;
-		
-		
 		do {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Bienvenido " + usuario + "!\r\n" + "\r\n" + "¿Que deseas realizar?\r\n" + "\r\n"
@@ -92,9 +99,12 @@ public class Main {
 
 		switch (opcion) {
 		case "1":
-			System.out.print("Indique la actividad que desea registrar: ");
+			System.out.println("Mostrando actividades del usuario:");
+			printActividades(usuario);
+			System.out.println("Presione enter para continuar");
+			sc.nextLine();
 			break;
-
+			
 		case "2":
 			System.out.println("¿Cual actividad deseas modificar?");
 				int seleccionModificar = recorrerActividades(usuario,sc);
@@ -113,14 +123,29 @@ public class Main {
 					System.out.println("¡Ha salido corractamente!"); break;
 				
 				case "1":
+					seleccionModificar = seleccionModificar - 1;
 					System.out.print("Ingrese nueva fecha: ");
-					
+					for (int i = 0; i < listaActividades.length; i++) {
+						if (usuario.equals(listaActividades[i][0])) {
+							if (seleccionModificar == 0) {
+								listaActividades[i][1] = sc.nextLine();
+								break;
+							} else seleccionModificar = seleccionModificar - 1;
+						}
+					}		
 					System.out.println("¡Fecha modificada con exito!");
-					
 				break;
 				case"2":
+					seleccionModificar = seleccionModificar - 1;
 					System.out.print("Ingrese nueva duración: ");
-					
+					for (int i = 0; i < listaActividades.length; i++) {
+						if (usuario.equals(listaActividades[i][0])) {
+							if (seleccionModificar == 0) {
+								listaActividades[i][2] = sc.nextLine();
+								break;
+							} else seleccionModificar = seleccionModificar - 1;
+						}
+					}				
 					System.out.println("¡Duración modificada con exito!");
 				break;
 				case"3":
@@ -147,13 +172,23 @@ public class Main {
 		case "3":
 			System.out.println("¿Cual actividad deseas eliminar?");
 				int seleccionEliminar = recorrerActividades(usuario,sc);
-				System.out.println("¿Seguro de querer eliminar esta activdad?");
+				System.out.println("¿Seguro de querer eliminar esta actividad?\n"
+						+ "1) Si\n"
+						+ "2) No");
+				System.out.print("Ingrese respuesta: ");
 				String opcionMenuEliminar = sc.nextLine();
 				switch (opcionMenuEliminar) {
 				case "1":
 					
-	}
+				break;
 				
+				case "2":
+					System.out.println("Volviendo al menu de usuario.");
+				break;
+				default:
+					System.out.println("Respuesta no valida, volviendo al menu de usuario.");
+				break;	
+				}		
 			break;
 
 		case "4":
@@ -188,6 +223,7 @@ public class Main {
 		}
 		return caso;
 	}
+	
 	private static void cambiarContraseña(Scanner sc) {
 		System.out.print("Ingrese su nueva contraseña");
 		String contraseña = sc.nextLine();
@@ -195,8 +231,18 @@ public class Main {
 		listaPosicion[1] = contraseña; 
 		System.out.println(listaUsuarios[0][1]);
 		System.out.println(listaPosicion[1]);
-		
-		
+			
 	}
-}
-
+	
+	private static void printActividades(String usuario) { 
+		/* funcion para printear las actividades cuando se selecciona
+		la primera opcion del menu de usuario verificado (registrar actividad) */
+		int i = 1;
+		for (String[] linea : listaActividades) {
+			if (usuario.equals(linea[0])) {
+				System.out.println(i + ") " + linea[0] + ";" + linea[1] + ";" + linea[2] + ";" + linea[3]);
+				i++;
+					}
+				}
+			}
+		}
