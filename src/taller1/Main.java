@@ -24,7 +24,12 @@ public class Main {
 		
 		switch (eleccion) {
 		case "1":
-			System.out.println("caso 1");
+			System.out.print("Usuario: ");
+			String usuario = sc.nextLine();
+			System.out.print("Contraseña: ");
+			String contraseña = sc.nextLine();
+			verificarUsuario(usuario, contraseña);
+			
 			break;
 		case "2":
 			System.out.println("caso 2");
@@ -38,7 +43,10 @@ public class Main {
 	}
 	
 	private static boolean verificarUsuario(String usuario, String contraseña) {
-		return true;
+		for (String[] cuenta: listaUsuarios) {
+			if (usuario.equals(cuenta[0]) && contraseña.equals(cuenta[1])) System.out.println("usuario conocido"); return true;
+		}
+		return false; 
 	}
 	
 	private static void guardarUsuarios () throws FileNotFoundException {
@@ -50,12 +58,6 @@ public class Main {
             
             listaUsuarios[i] = partes;
             i++;
-        }
-        
-        for (i = 0; i < listaUsuarios.length; i++) {
-        	for (int j = 0; j < listaUsuarios[0].length; j++) {
-        		System.out.println(listaUsuarios[i][j]);
-        	}
         }
 	}
 }
