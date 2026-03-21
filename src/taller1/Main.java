@@ -21,21 +21,25 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		String eleccion = sc.nextLine();
 		
-		
 		switch (eleccion) {
 		case "1":
 			System.out.print("Usuario: ");
 			String usuario = sc.nextLine();
 			System.out.print("Contraseña: ");
 			String contraseña = sc.nextLine();
-			verificarUsuario(usuario, contraseña);
+			
+			if (verificarUsuario(usuario, contraseña)) {
+				System.out.println("Acceso correcto!");
+				menuUsuarioVerificado(usuario);
+			} else System.out.println("Usuario no existente");
 			
 			break;
 		case "2":
 			System.out.println("caso 2");
+			
 			break;
 		case "3":
-			System.out.println("Ha salido correctamente");
+			System.out.println("¡Ha salido correctamente!");
 			break;
 		default:
 			System.out.println("Opcion no valida.");
@@ -44,7 +48,7 @@ public class Main {
 	
 	private static boolean verificarUsuario(String usuario, String contraseña) {
 		for (String[] cuenta: listaUsuarios) {
-			if (usuario.equals(cuenta[0]) && contraseña.equals(cuenta[1])) System.out.println("usuario conocido"); return true;
+			if (usuario.equals(cuenta[0]) && contraseña.equals(cuenta[1])) return true;
 		}
 		return false; 
 	}
@@ -55,9 +59,50 @@ public class Main {
         while(lector.hasNextLine()) {
             String linea = lector.nextLine();
             String[] partes = linea.split(";");
-            
             listaUsuarios[i] = partes;
             i++;
         }
 	}
+	
+	private static void menuUsuarioVerificado(String usuario) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Bienvenido " + usuario + "!\r\n"
+				+ "\r\n"
+				+ "Que deseas realizar?\r\n"
+				+ "\r\n"
+				+ "1) Registrar actividad.\r\n"
+				+ "2) Modificar actividad.\r\n"
+				+ "3) Eliminar actividad.\r\n"
+				+ "4) Cambiar contraseña.\r\n"
+				+ "5) Salir.");
+		System.out.print("Ingrese su opción: ");
+		String opcion = sc.nextLine();
+		
+		switch (opcion) {
+			case "1":
+				break;
+				
+			case "2":
+				System.out.println("¿Cual actividad deseas modificar?");
+				break;
+				
+			case "3":
+				System.out.println("¿Cual actividad deseas eliminar?");
+				break;
+				
+			case "4":
+				System.out.println("Ingrese la nueva contraseña: ");
+				
+				break;
+				
+			case "5":
+				System.out.println("¡Ha salido corractamente!");
+				break;
+			default:
+				System.out.println("Opcion no valida, ingrese nuevamente.");
+			}
+		}
+		
 }
+	
+
