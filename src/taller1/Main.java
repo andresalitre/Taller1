@@ -1,3 +1,8 @@
+/*Integrante 1: Andrés Rojas 22.065.446-k ICCI
+ *Integrante 2: Jorge Callejas 21.926.182-9 ICI 
+ * 
+ * 
+ */
 package taller1;
 
 import java.util.Scanner;
@@ -7,7 +12,9 @@ import java.io.FileNotFoundException;
 public class Main {
 	private static String[][] listaUsuarios = new String[3][2];
 	private static String[][] listaActividades = new String[300][4];
-
+	private static String[] listaPosicion = new String[2];
+	
+	
 	public static void main(String[] args) throws FileNotFoundException {
 		guardarListas(listaUsuarios, "Usuarios");
 		guardarListas(listaActividades, "Registros");
@@ -54,6 +61,7 @@ public class Main {
 	private static boolean verificarUsuario(String usuario, String contraseña) {
 		for (String[] cuenta : listaUsuarios) {
 			if (usuario.equals(cuenta[0]) && contraseña.equals(cuenta[1]))
+				listaPosicion = cuenta;
 				return true;
 		}
 		return false;
@@ -150,6 +158,7 @@ public class Main {
 
 		case "4":
 			System.out.println("Ingrese la nueva contraseña: ");
+			cambiarContraseña(sc);
 			// DEJARLO COMO PREGUNTA AL AYUDANTE
 			break;
 
@@ -179,5 +188,15 @@ public class Main {
 		}
 		return caso;
 	}
-
+	private static void cambiarContraseña(Scanner sc) {
+		System.out.print("Ingrese su nueva contraseña");
+		String contraseña = sc.nextLine();
+		System.out.println(listaUsuarios[0][1]);
+		listaPosicion[1] = contraseña; 
+		System.out.println(listaUsuarios[0][1]);
+		System.out.println(listaPosicion[1]);
+		
+		
+	}
 }
+
