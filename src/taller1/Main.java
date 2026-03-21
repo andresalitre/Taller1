@@ -71,12 +71,16 @@ public class Main {
 	}
 
 	private static void menuUsuarioVerificado(String usuario) {
+		String opcion;
+		
+		
+		do {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Bienvenido " + usuario + "!\r\n" + "\r\n" + "Que deseas realizar?\r\n" + "\r\n"
+		System.out.println("Bienvenido " + usuario + "!\r\n" + "\r\n" + "¿Que deseas realizar?\r\n" + "\r\n"
 				+ "1) Registrar actividad.\r\n" + "2) Modificar actividad.\r\n" + "3) Eliminar actividad.\r\n"
 				+ "4) Cambiar contraseña.\r\n" + "5) Salir.");
 		System.out.print("Ingrese su opción: ");
-		String opcion = sc.nextLine();
+		opcion = sc.nextLine();
 
 		switch (opcion) {
 		case "1":
@@ -85,12 +89,63 @@ public class Main {
 
 		case "2":
 			System.out.println("¿Cual actividad deseas modificar?");
-				System.out.println(recorrerActividades(usuario,sc));
+				int seleccionModificar = recorrerActividades(usuario,sc);
+				if (seleccionModificar == 0)  opcion = "0"; 
+				else {
+				System.out.println("Que deseas modificar?\r\n"
+						+ "\r\n"
+						+ "0) Regresar.\r\n"
+						+ "1) Fecha\r\n"
+						+ "2) Duracion\r\n"
+						+ "3) Tipo de actividad");
+				System.out.print("Ingrese su opción: ");
+				String opcionMenuModificar = sc.nextLine();
+				switch (opcionMenuModificar) {
+				case "0":
+					System.out.println("¡Ha salido corractamente!"); break;
+				
+				case "1":
+					System.out.print("Ingrese nueva fecha: ");
+					
+					System.out.println("¡Fecha modificada con exito!");
+					
+				break;
+				case"2":
+					System.out.print("Ingrese nueva duración: ");
+					
+					System.out.println("¡Duración modificada con exito!");
+				break;
+				case"3":
+					seleccionModificar = seleccionModificar - 1;
+					System.out.print("Ingrese nuevo tipo de actividad: ");
+					for (int i = 0; i < listaActividades.length; i++) {
+						if (usuario.equals(listaActividades[i][0])) {
+							if (seleccionModificar == 0) {
+								listaActividades[i][3] = sc.nextLine();
+								break;
+							} else seleccionModificar = seleccionModificar - 1;
+						}
+					}
+					System.out.println("¡Actividad modificada con exito!");
+				break;
+				
+				default:
+					System.out.println("Opción no valida, regresando al menu de usuario"); break;
+				}
+				
+	}
 			break;
 
 		case "3":
 			System.out.println("¿Cual actividad deseas eliminar?");
-				System.out.println(recorrerActividades(usuario,sc));
+				int seleccionEliminar = recorrerActividades(usuario,sc);
+				System.out.println("¿Seguro de querer eliminar esta activdad?");
+				String opcionMenuEliminar = sc.nextLine();
+				switch (opcionMenuEliminar) {
+				case "1":
+					
+	}
+				
 			break;
 
 		case "4":
@@ -103,8 +158,8 @@ public class Main {
 			break;
 		default:
 			System.out.println("Opcion no valida, ingrese nuevamente.");
-			menuUsuarioVerificado(usuario);
-		}
+			}
+		} while (!opcion.equalsIgnoreCase("5"));
 	}
 
 	private static int recorrerActividades(String usuario, Scanner sc) {
