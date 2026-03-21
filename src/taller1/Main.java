@@ -100,7 +100,9 @@ public class Main {
 
 		switch (opcion) {
 		case "1":
-			System.out.println("Mostrando actividades del usuario:");
+			System.out.println("Mostrando actividades del usuario:"); 
+			/*Se usa la funcion printActividades para mostrar las actividades del usuario, 
+			 luego se usa un scanner para que el usuario deba presionar enter para continuar */
 			printActividades(usuario);
 			System.out.println("Presione enter para continuar");
 			sc.nextLine();
@@ -123,22 +125,25 @@ public class Main {
 				case "0":
 					System.out.println("¡Ha salido corractamente!"); break;
 				
+				/* para cualquiera de los casos que no sea regresar, se recorre listaActividades (la cual es la matriz global que
+				 contiene las actividades de todos los usuarios) y el valor que se retorna de "recorrerActividades" se 
+				 usara como contador */
 				case "1":
 					seleccionModificar = seleccionModificar - 1;
 					System.out.print("Ingrese nueva fecha: ");
-					for (int i = 0; i < listaActividades.length; i++) {
-						if (usuario.equals(listaActividades[i][0])) {
-							if (seleccionModificar == 0) {
+					for (int i = 0; i < listaActividades.length; i++) { //se recorren todas las actividades de la matriz 
+						if (usuario.equals(listaActividades[i][0])) { //si el usuario ingresa coincide con el de la actividad pueden pasar 2 cosas
+							if (seleccionModificar == 0) { //si el contador llega a 0 se pide al usuario modificar lo pedido
 								listaActividades[i][1] = sc.nextLine();
 								break;
-							} else seleccionModificar = seleccionModificar - 1;
+							} else seleccionModificar = seleccionModificar - 1; //si el contador no es igual a 0 se resta uno
 						}
 					}		
 					System.out.println("¡Fecha modificada con exito!");
 				break;
 				case"2":
 					seleccionModificar = seleccionModificar - 1;
-					System.out.print("Ingrese nueva duración: ");
+					System.out.print("Ingrese nueva duración: "); 
 					for (int i = 0; i < listaActividades.length; i++) {
 						if (usuario.equals(listaActividades[i][0])) {
 							if (seleccionModificar == 0) {
@@ -170,22 +175,25 @@ public class Main {
 	}
 			break;
 
-		case "3":
+		case "3": 
+			/* Se usa la funcion "recorrerActividades" para que retorne el valor de la posicion de la actividad que se va a 
+			 eliminar */
 			System.out.println("¿Cual actividad deseas eliminar?");
 				int seleccionEliminar = recorrerActividades(usuario,sc);
-				System.out.println("¿Seguro de querer eliminar esta actividad?\n"
+				System.out.println("¿Seguro de querer eliminar esta actividad?\n" //se pregunta si quiere o no quiere eliminar
 						+ "1) Si\n"
 						+ "2) No");
 				System.out.print("Ingrese respuesta: ");
 				String opcionMenuEliminar = sc.nextLine();
 				switch (opcionMenuEliminar) {
 				case "1":
-					seleccionEliminar = seleccionEliminar - 1;
+					seleccionEliminar = seleccionEliminar - 1; 
 					System.out.print("Ingrese nuevo tipo de actividad: ");
 					for (int i = 0; i < listaActividades.length; i++) {
 						if (usuario.equals(listaActividades[i][0])) {
 							if (seleccionEliminar == 0) {
-								listaActividades[i] = new String[4];
+								listaActividades[i] = new String[4]; /* se reemplaza la actividad (usuario,fecha,hora,actividad) por una 
+																								variable vacia (null,null,null,null) para simular que se ha eliminado*/
 								break;
 							} else seleccionEliminar = seleccionEliminar - 1;
 						}
@@ -219,6 +227,8 @@ public class Main {
 	}
 
 	private static int recorrerActividades(String usuario, Scanner sc) {
+		/* esta funcion printea todas las actividades del usuario en listadas, luego el scanner solicita una valor,
+		 este sera retornado  y utilizado para encontrar la posicion de la actividad que se selecciona */
 		System.out.println("0) Regresar.");
 		int i = 1;
 		for (String[] linea : listaActividades) {
