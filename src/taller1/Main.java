@@ -13,7 +13,7 @@ public class Main {
 	private static String[][] listaUsuarios = new String[3][2];
 	private static String[][] listaActividades = new String[300][4];
 	private static String[] listaPosicion = new String[2];
-	
+	private static String[] listaActividadesAuxiliar = new String[4];
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		guardarListas(listaUsuarios, "Usuarios");
@@ -109,7 +109,7 @@ public class Main {
 
 		case "5":
 			System.out.println("¡Ha salido corractamente!");
-			break;
+			return;
 		default:
 			System.out.println("Opcion no valida, ingrese nuevamente.");
 			menuUsuarioVerificado(usuario);
@@ -123,14 +123,52 @@ public class Main {
 			if (usuario.equals(linea[0])) {
 				System.out.println(i + ") " + linea[0] + ";" + linea[1] + ";" + linea[2] + ";" + linea[3]);
 				i++;
+				listaActividadesAuxiliar = linea;
 			}
 		}
+		
+		
+		
 		int caso = 0;
-		try {
-			caso = Integer.valueOf(sc.nextLine());
-		} catch (Exception e) {
-			System.out.println("Número invalido");
-		}
+//		try {
+//			caso = Integer.valueOf(sc.nextLine());
+//		} catch (Exception e) {
+//			System.out.println("Número invalido");
+		
+		//}
+		String opcion;
+		do {
+			System.out.println("Que deseas modificar?\r\n"
+					+ "\r\n"
+					+ "0) Regresar.\r\n"
+					+ "1) Fecha\r\n"
+					+ "2) Duracion\r\n"
+					+ "3) Tipo de actividad");
+			opcion = sc.nextLine();
+			switch (opcion) {
+			case "1": {
+				System.out.println("Fecha modificada");
+				menuUsuarioVerificado(listaPosicion[0]);
+				break;
+			}
+			case "2": {
+				System.out.println("Duracion modificada");
+				menuUsuarioVerificado(listaPosicion[0]);
+				break;
+			}
+			case "3": {
+				System.out.println("Actividad modificada");
+				menuUsuarioVerificado(listaPosicion[0]);
+				break;
+			}
+			
+			default:
+				if (opcion != "0")
+					System.out.println("opción inválida");
+				break;
+			}
+		} while(!opcion.equals("0"));
+		
 		return caso;
 	}
 	private static void cambiarContraseña(Scanner sc) {
@@ -141,7 +179,8 @@ public class Main {
 		System.out.println(listaUsuarios[0][1]);
 		System.out.println(listaPosicion[1]);
 		
-		
 	}
+	
+	
 }
 
