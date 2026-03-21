@@ -13,7 +13,6 @@ public class Main {
 	private static String[][] listaUsuarios = new String[3][2];
 	private static String[][] listaActividades = new String[300][4];
 	private static String[] listaPosicion = new String[2];
-
 	private static String[] listaActividadesAuxiliar = new String[4];
 
 	
@@ -55,10 +54,10 @@ public class Main {
 			System.out.println("¡Ha salido correctamente!");
 			break;
 		default:
-			System.out.println("Opcion no valida, ingrese nuevamente");
+			System.out.println("Opción no valida, ingrese nuevamente");
 			break;
 		} 
-	} while (!eleccion.equals("3"));
+	} while (!eleccion.equalsIgnoreCase("3"));
 }
 
 	private static boolean verificarUsuario(String usuario, String contraseña) {
@@ -90,8 +89,6 @@ public class Main {
 	}
 
 	private static void menuUsuarioVerificado(String usuario) {
-		
-		
 		String opcion;
 		do {
 		Scanner sc = new Scanner(System.in);
@@ -183,8 +180,19 @@ public class Main {
 				String opcionMenuEliminar = sc.nextLine();
 				switch (opcionMenuEliminar) {
 				case "1":
-					
+					seleccionEliminar = seleccionEliminar - 1;
+					System.out.print("Ingrese nuevo tipo de actividad: ");
+					for (int i = 0; i < listaActividades.length; i++) {
+						if (usuario.equals(listaActividades[i][0])) {
+							if (seleccionEliminar == 0) {
+								listaActividades[i] = new String[4];
+								break;
+							} else seleccionEliminar = seleccionEliminar - 1;
+						}
+					}
+					System.out.println("¡Actividad eliminada con exito!");
 				break;
+				
 				
 				case "2":
 					System.out.println("Volviendo al menu de usuario.");
@@ -202,10 +210,10 @@ public class Main {
 			break;
 
 		case "5":
-			System.out.println("¡Ha salido corractamente!");
+			System.out.println("¡Ha salido correctamente!");
 			return;
 		default:
-			System.out.println("Opcion no valida, ingrese nuevamente.");
+			System.out.println("Opción no valida, ingrese nuevamente.");
 			}
 		} while (!opcion.equalsIgnoreCase("5"));
 	}
