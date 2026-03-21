@@ -13,6 +13,9 @@ public class Main {
 	private static String[][] listaUsuarios = new String[3][2];
 	private static String[][] listaActividades = new String[300][4];
 	private static String[] listaPosicion = new String[2];
+
+	private static String[] listaActividadesAuxiliar = new String[4];
+
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		guardarListas(listaUsuarios, "Usuarios");
@@ -52,7 +55,8 @@ public class Main {
 			System.out.println("¡Ha salido correctamente!");
 			break;
 		default:
-			System.out.println("Opcion no valida, ingrese nuevamente"); 
+			System.out.println("Opcion no valida, ingrese nuevamente");
+			break;
 		} 
 	} while (!eleccion.equals("3"));
 }
@@ -64,9 +68,9 @@ public class Main {
 		al menu inicial
 		*/
 		for (String[] cuenta : listaUsuarios) {
-			if (usuario.equals(cuenta[0]) && contraseña.equals(cuenta[1]))
+			if (usuario.equals(cuenta[0]) && contraseña.equals(cuenta[1])) {
 				listaPosicion = cuenta;
-				return true;
+				return true; }
 		}
 		return false;
 	}
@@ -199,7 +203,7 @@ public class Main {
 
 		case "5":
 			System.out.println("¡Ha salido corractamente!");
-			break;
+			return;
 		default:
 			System.out.println("Opcion no valida, ingrese nuevamente.");
 			}
@@ -213,14 +217,15 @@ public class Main {
 			if (usuario.equals(linea[0])) {
 				System.out.println(i + ") " + linea[0] + ";" + linea[1] + ";" + linea[2] + ";" + linea[3]);
 				i++;
+				listaActividadesAuxiliar = linea;
 			}
-		}
+		}	
 		int caso = 0;
-		try {
+	try {
 			caso = Integer.valueOf(sc.nextLine());
-		} catch (Exception e) {
-			System.out.println("Número invalido");
-		}
+	} catch (Exception e) {
+		System.out.println("Número invalido");
+			} 
 		return caso;
 	}
 	
@@ -244,5 +249,8 @@ public class Main {
 				i++;
 					}
 				}
-			}
-		}
+			}		
+}
+	
+
+
