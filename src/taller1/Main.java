@@ -6,7 +6,10 @@
 package taller1;
 
 import java.util.Scanner;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.FileNotFoundException;
 
 public class Main {
@@ -16,14 +19,14 @@ public class Main {
 	private static String[] listaActividadesAuxiliar = new String[4];
 
 	
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 		guardarListas(listaUsuarios, "Usuarios");
 		guardarListas(listaActividades, "Registros");
 		menu();
 
 	}
 
-	private static void menu() { // Menu principal donde estara el login y el menu analisis
+	private static void menu() throws IOException { // Menu principal donde estara el login y el menu analisis
 		String eleccion;
 		do {
 		System.out.println("1) Menu de Usuarios\r\n" + "2) Menu de Analisis\r\n" + "3) Salir");
@@ -88,7 +91,7 @@ public class Main {
 		}
 	}
 
-	private static void menuUsuarioVerificado(String usuario) {
+	private static void menuUsuarioVerificado(String usuario) throws IOException {
 		String opcion;
 		do {
 		Scanner sc = new Scanner(System.in);
@@ -100,13 +103,21 @@ public class Main {
 
 		switch (opcion) {
 		case "1":
-			System.out.println("Mostrando actividades del usuario:"); 
-			/*Se usa la funcion printActividades para mostrar las actividades del usuario, 
-			 luego se usa un scanner para que el usuario deba presionar enter para continuar */
-			printActividades(usuario);
-			System.out.println("Presione enter para continuar");
-			sc.nextLine();
-			break;
+			for (int i = 0; i < listaActividades.length; i++) {
+				if (listaActividades[i][0] == null || listaActividades[i][0] == "") {
+					listaActividades[i] = new String[4];
+					listaActividades[i][0] = usuario;
+			        System.out.print("Ingrese fecha de la actividad: ");
+			        listaActividades[i][1] = sc.nextLine();
+			        System.out.print("Ingrese horas de la actividad: ");
+			        listaActividades[i][2] = sc.nextLine();
+			        System.out.print("Ingrese la actividad: ");
+			        listaActividades[i][3] = sc.nextLine();
+			        System.out.println("¡Actividad registrada correctamente!");
+			        modificarArchivo(listaActividades, "Registros.txt");
+			        break;
+			    } 
+			} System.out.println("¡No queda espacio para nuevas actividades!"); break;
 			
 		case "2":
 			System.out.println("¿Cual actividad deseas modificar?");
@@ -140,6 +151,7 @@ public class Main {
 						}
 					}		
 					System.out.println("¡Fecha modificada con exito!");
+					modificarArchivo(listaActividades, "Registros.txt");
 				break;
 				case"2":
 					seleccionModificar = seleccionModificar - 1;
@@ -153,6 +165,7 @@ public class Main {
 						}
 					}				
 					System.out.println("¡Duración modificada con exito!");
+					modificarArchivo(listaActividades, "Registros.txt");
 				break;
 				case"3":
 					seleccionModificar = seleccionModificar - 1;
@@ -166,6 +179,7 @@ public class Main {
 						}
 					}
 					System.out.println("¡Actividad modificada con exito!");
+					modificarArchivo(listaActividades, "Registros.txt");
 				break;
 				
 				default:
@@ -199,6 +213,8 @@ public class Main {
 						}
 					}
 					System.out.println("¡Actividad eliminada con exito!");
+					modificarArchivo(listaActividades, "Registros.txt");
+					
 				break;
 				
 				
@@ -212,9 +228,8 @@ public class Main {
 			break;
 
 		case "4":
-			System.out.println("Ingrese la nueva contraseña: ");
+			System.out.print("Ingrese la nueva contraseña: ");
 			cambiarContraseña(sc);
-			// DEJARLO COMO PREGUNTA AL AYUDANTE
 			break;
 
 		case "5":
@@ -247,14 +262,10 @@ public class Main {
 		return caso;
 	}
 	
-	private static void cambiarContraseña(Scanner sc) {
-		System.out.print("Ingrese su nueva contraseña");
+	private static void cambiarContraseña(Scanner sc) throws IOException {
 		String contraseña = sc.nextLine();
-		System.out.println(listaUsuarios[0][1]);
 		listaPosicion[1] = contraseña; 
-		System.out.println(listaUsuarios[0][1]);
-		System.out.println(listaPosicion[1]);
-			
+		modificarArchivo(listaUsuarios, "Usuarios.txt");
 	}
 	
 	private static void printActividades(String usuario) { 
@@ -267,8 +278,25 @@ public class Main {
 				i++;
 					}
 				}
-			}		
-}
+			}	
 	
-
-
+	private static void modificarArchivo(String[][] matriz, String archivo) throws IOException {
+	    try (BufferedWriter reescritor = new BufferedWriter(new FileWriter(archivo))) {
+	        for (int i = 0; i < matriz.length; i++) {
+	            if (matriz[i][0] == null) {
+	                reescritor.newLine();
+	                
+	            } else {
+	            String lineaArchivo = "";
+	            for (int j = 0; j < matriz[i].length; j++) {
+	                lineaArchivo = lineaArchivo + matriz[i][j];
+	                if (j < matriz[i].length - 1) {
+	                    lineaArchivo = lineaArchivo + ";";
+	                }
+	            }
+	            reescritor.write(lineaArchivo); reescritor.newLine(); //escribir nueva linea y salto para la siguiente
+	        }
+	    }
+	}
+}
+}
