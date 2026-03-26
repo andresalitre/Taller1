@@ -177,7 +177,7 @@ Catalina;28/04/2026;7;ser Batman por las noches
 Estefania;28/04/2026;4;investigar las cutiemarks
 Martin;29/04/2026;2;Ver jujutsu
 Catalina;29/04/2026;3;Ver reels
-Estefania;29/04/2026;2;programar
+Martin;1;1;1
 Martin;30/04/2026;5;ser therian
 Catalina;30/04/2026;6;ser Batman por las noches
 Estefania;30/04/2026;5;investigar las cutiemarks
@@ -190,7 +190,7 @@ Estefania;02/05/2026;4;investigar las cutiemarks
 Martin;03/05/2026;1;Ver reels
 Catalina;03/05/2026;2;Ver jujutsu
 Estefania;03/05/2026;3;estudiar
-Martin;04/05/2026;4;ser therian
+Martin;12;12;76
 Catalina;04/05/2026;7;ser Batman por las noches
 Estefania;04/05/2026;3;investigar las cutiemarks
 Catalina;01/03/2026;6;ser Batman por las noches
@@ -198,103 +198,103 @@ Catalina;05/05/2026;1;programar
 Estefania;05/05/2026;2;Ver mlp
 Catalina;01/03/2026;6;ser Batman por las noches
 Catalina;06/05/2026;6;ser Batman por las noches
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;01/03/2026;6;ser Batman por las noches
-Estefania;30/04/2026;5;investigar las cutiemarks
-Martin;01/05/2026;3;programar
-Catalina;01/05/2026;1;estudiar
-Estefania;01/05/2026;2;Ver mlp
-Martin;02/05/2026;6;ser therian
-Catalina;02/05/2026;5;ser Batman por las noches
-Estefania;02/05/2026;4;investigar las cutiemarks
-Martin;03/05/2026;1;Ver reels
-Catalina;03/05/2026;2;Ver jujutsu
-Estefania;03/05/2026;3;estudiar
-Martin;04/05/2026;4;ser therian
-Catalina;04/05/2026;7;ser Batman por las noches
-Estefania;04/05/2026;3;investigar las cutiemarks
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;05/05/2026;1;programar
-Estefania;05/05/2026;2;Ver mlp
-Catalina;01/03/2026;6;ser Batman por las noches
 Catalina;06/05/2026;6;ser Batman por las noches
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;01/03/2026;6;ser Batman por las noches
-Estefania;30/04/2026;5;investigar las cutiemarks
-Martin;01/05/2026;3;programar
-Catalina;01/05/2026;1;estudiar
-Estefania;01/05/2026;2;Ver mlp
-Martin;02/05/2026;6;ser therian
-Catalina;02/05/2026;5;ser Batman por las noches
-Estefania;02/05/2026;4;investigar las cutiemarks
-Martin;03/05/2026;1;Ver reels
-Catalina;03/05/2026;2;Ver jujutsu
-Estefania;03/05/2026;3;estudiar
-Martin;04/05/2026;4;ser therian
-Catalina;04/05/2026;7;ser Batman por las noches
-Estefania;04/05/2026;3;investigar las cutiemarks
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;05/05/2026;1;programar
-Estefania;05/05/2026;2;Ver mlp
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;06/05/2026;6;ser Batman por las noches
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;01/03/2026;6;ser Batman por las noches
-Estefania;30/04/2026;5;investigar las cutiemarks
-Martin;01/05/2026;3;programar
-Catalina;01/05/2026;1;estudiar
-Estefania;01/05/2026;2;Ver mlp
-Martin;02/05/2026;6;ser therian
-Catalina;02/05/2026;5;ser Batman por las noches
-Estefania;02/05/2026;4;investigar las cutiemarks
-Martin;03/05/2026;1;Ver reels
-Catalina;03/05/2026;2;Ver jujutsu
-Estefania;03/05/2026;3;estudiar
-Martin;04/05/2026;4;ser therian
-Catalina;04/05/2026;7;ser Batman por las noches
-Estefania;04/05/2026;3;investigar las cutiemarks
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;05/05/2026;1;programar
-Estefania;05/05/2026;2;Ver mlp
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;06/05/2026;6;ser Batman por las noches
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;01/03/2026;6;ser Batman por las noches
-Estefania;30/04/2026;5;investigar las cutiemarks
-Martin;01/05/2026;3;programar
-Catalina;01/05/2026;1;estudiar
-Estefania;01/05/2026;2;Ver mlp
-Martin;02/05/2026;6;ser therian
-Catalina;02/05/2026;5;ser Batman por las noches
-Estefania;02/05/2026;4;investigar las cutiemarks
-Martin;03/05/2026;1;Ver reels
-Catalina;03/05/2026;2;Ver jujutsu
-Estefania;03/05/2026;3;estudiar
-Martin;04/05/2026;4;ser therian
-Catalina;04/05/2026;7;ser Batman por las noches
-Estefania;04/05/2026;3;investigar las cutiemarks
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;05/05/2026;1;programar
-Estefania;05/05/2026;2;Ver mlp
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;06/05/2026;6;ser Batman por las noches
-Catalina;01/03/2026;6;ser Batman por las noches
-Catalina;01/03/2026;6;ser Batman por las noches
-Estefania;30/04/2026;5;investigar las cutiemarks
-Martin;01/05/2026;3;programar
-Catalina;01/05/2026;1;estudiar
-Estefania;01/05/2026;2;Ver mlp
-Martin;02/05/2026;6;ser therian
-Catalina;02/05/2026;5;ser Batman por las noches
-Estefania;02/05/2026;4;investigar las cutiemarks
-Martin;03/05/2026;1;Ver reels
-Estefania;30/04/2026;5;investigar las cutiemarks
-Martin;01/05/2026;3;programar
-Catalina;01/05/2026;1;estudiar
-Estefania;01/05/2026;2;Ver mlp
-Martin;02/05/2026;6;ser therian
-Catalina;02/05/2026;5;ser Batman por las noches
-Estefania;02/05/2026;4;investigar las cutiemarks
-Martin;03/05/2026;1;jugar lol
-Catalina;03/05/2026;2;Ver jujutsu
-Estefania;03/05/2026;3;estudiar
+Martin;12;12;4232
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
