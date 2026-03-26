@@ -354,7 +354,6 @@ public class Main {
 				
 	}
 			break;
-
 		case "3": 
 			/* Se usa la funcion "recorrerActividades" para que retorne el valor de la posicion de la actividad que se va a 
 			 eliminar */
@@ -373,17 +372,14 @@ public class Main {
 						if (usuario.equals(listaActividades[i][0])) {
 							if (seleccionEliminar == 0) {
 								listaActividades[i] = new String[4]; /* se reemplaza la actividad (usuario,fecha,hora,actividad) por una 
-																								variable vacia (null,null,null,null) para simular que se ha eliminado*/
+																variable vacia (null,null,null,null) para simular que se ha eliminado*/
 								break;
 							} else seleccionEliminar = seleccionEliminar - 1;
 						}
 					}
 					System.out.println("¡Actividad eliminada con exito!");
-					modificarArchivo(listaActividades, "Registros.txt");
-					
+					modificarArchivo(listaActividades, "Registros.txt");	
 				break;
-				
-				
 				case "2":
 					System.out.println("Volviendo al menu de usuario.");
 				break;
