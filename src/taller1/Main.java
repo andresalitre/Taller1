@@ -16,8 +16,6 @@ public class Main {
 	private static String[][] listaUsuarios = new String[3][2];
 	private static String[][] listaActividades = new String[300][4];
 	private static String[] listaPosicion = new String[2];
-	private static String[] listaActividadesAuxiliar = new String[4];
-
 	
 	public static void main(String[] args) throws IOException {
 		guardarListas(listaUsuarios, "Usuarios");
@@ -50,6 +48,7 @@ public class Main {
 			break;
 		case "2":
 			menuAnalisis(sc);
+
 			break;
 		case "3":
 			System.out.println("¡Ha salido correctamente!");
@@ -417,7 +416,6 @@ public class Main {
 			if (usuario.equals(linea[0])) {
 				System.out.println(i + ") " + linea[0] + ";" + linea[1] + ";" + linea[2] + ";" + linea[3]);
 				i++;
-				listaActividadesAuxiliar = linea;
 			}
 		}	
 		int caso = 0;
