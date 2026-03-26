@@ -295,6 +295,6 @@ Estefania;01/05/2026;2;Ver mlp
 Martin;02/05/2026;6;ser therian
 Catalina;02/05/2026;5;ser Batman por las noches
 Estefania;02/05/2026;4;investigar las cutiemarks
-Martin;03/05/2026;1;Ver reels
+Martin;03/05/2026;1;jugar lol
 Catalina;03/05/2026;2;Ver jujutsu
 Estefania;03/05/2026;3;estudiar
