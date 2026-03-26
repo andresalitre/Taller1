@@ -47,8 +47,8 @@ public class Main {
 
 			break;
 		case "2":
-			System.out.println("caso 2");
-
+			menuAnalisis(sc);
+			
 			break;
 		case "3":
 			System.out.println("¡Ha salido correctamente!");
@@ -58,7 +58,186 @@ public class Main {
 			break;
 		} 
 	} while (!eleccion.equalsIgnoreCase("3"));
-}
+    }
+	
+	private static void menuAnalisis(Scanner sc) {
+		System.out.println("Bienvenido al menu de analisis!\r\n"
+				+ "\r\n"
+				+ "Que deseas realizar?\r\n"
+				+ "\r\n"
+				+ "1) Actividad más realizada\r\n"
+				+ "2) Actividad más realizada por cada usuario\r\n"
+				+ "3) Usuario con mayor procastinacion\r\n"
+				+ "4) Ver todas las actividades\r\n"
+				+ "5) Salir");
+		
+		String eleccion = sc.nextLine();
+		switch (eleccion) {
+		case "1":
+			recorrer(listaActividades, eleccion);
+			// hay que mejorar la lógica del switch pero funciona
+			break;
+		case "2":
+			recorrer(listaActividades, eleccion);
+			break;
+		case "3":
+			recorrer(listaActividades, eleccion);
+			break;
+		case "4":
+			recorrer(listaActividades, eleccion);
+			break;
+		case "5":
+			menu();
+			break;
+		default:
+			System.out.println("Opción no valida, ingrese nuevamente");
+			break;
+		}
+	
+	}
+	
+	private static void recorrer(String[][] mx, String opcion) {
+	    String[] listaActividadUnica = new String[0];
+	    int[] contadores = new int[0]; 
+
+	    for (int i = 0; i < mx.length; i++) {
+	        if (mx[i][3] == null) continue;
+
+	        String datoActual = mx[i][3];
+	        
+	
+	        boolean encontrado = false;
+	        for (int j = 0; j < listaActividadUnica.length; j++) {
+	            if (listaActividadUnica[j].equals(datoActual)) {
+	                contadores[j]++; 
+	                encontrado = true;
+	                break;
+	            }
+	        }
+	        
+	        if (!encontrado) {
+	            listaActividadUnica = agregarActividad(listaActividadUnica, datoActual);
+	            contadores = agregarContador(contadores);
+	        }
+	    }
+	    switch (opcion) {
+		case "1":
+			actividadMasRealizada(listaActividadUnica, contadores);
+			
+			break;
+		case "2":
+			actividadMasRealizadaPorUsuario(listaActividades);
+			break;
+		case "3":
+			usuarioMayorProcastinacion(listaActividades);
+			break;
+		case "4":
+			printerActividades(listaActividadUnica);
+	    
+	    }
+	}
+	
+	private static void printerActividades(String[] listaUnicos) {
+		if(listaUnicos[0] == null) {
+			return;
+		}
+		for(int i = 0; i < listaUnicos.length; i++) {
+			System.out.println(listaUnicos[i]);
+		}
+	}
+	
+	private static void actividadMasRealizadaPorUsuario(String[][] mx) {
+	    for (int u = 0; u < listaUsuarios.length; u++) {
+	        String usuario = listaUsuarios[u][0]; 
+
+	        String[] actividadesUsuario = new String[0];
+	        int[] contadoresUsuario = new int[0];
+
+	        for (int i = 0; i < mx.length; i++) {
+	            if (mx[i][0] == null || !mx[i][0].equals(usuario)) continue;
+
+	            String actividad = mx[i][3];
+	            boolean encontrado = false;
+
+	            for (int j = 0; j < actividadesUsuario.length; j++) {
+	                if (actividadesUsuario[j].equals(actividad)) {
+	                    contadoresUsuario[j]++;
+	                    encontrado = true;
+	                    break;
+	                }
+	            }
+	            if (!encontrado) {
+	                actividadesUsuario = agregarActividad(actividadesUsuario, actividad);
+	                contadoresUsuario = agregarContador(contadoresUsuario);
+	            }
+	        }
+
+	       
+	        int[] lista = {-1, 0};
+	        for (int i = 0; i < actividadesUsuario.length; i++) {
+	            if (contadoresUsuario[i] > lista[0]) {
+	                lista[0] = contadoresUsuario[i];
+	                lista[1] = i;
+	            }
+	        }
+	        System.out.println(usuario + " -> "
+	            + actividadesUsuario[lista[1]] + " -> con " + lista[0] + " horas registradas");
+	    }
+	}
+	
+	private static void actividadMasRealizada(String[] listaUnica, int[]contadores) {
+		int[] lista = {-1, 0};
+		
+		for(int i = 0; i < listaUnica.length; i++) {
+			if(contadores[i] > lista[0]) { // falta poner algo por si llega el contador o lista nulo
+				lista[0] = contadores[i];
+				lista[1] = i;
+			}
+		}
+		System.out.println("La actividad más realizada fue: " + listaUnica[lista[1]] + " con " + lista[0] + " repeticiones");
+	}
+	
+	private static String[] agregarActividad(String[] listaUnica, String datoNuevo) {
+	    String[] nuevaLista = new String[listaUnica.length + 1];
+	    for (int i = 0; i < listaUnica.length; i++) {
+	        nuevaLista[i] = listaUnica[i];
+	    }
+	    nuevaLista[listaUnica.length] = datoNuevo;
+	    return nuevaLista;
+	}
+	
+	private static int[] agregarContador(int[] contadores) {
+	    int[] nuevosContadores = new int[contadores.length + 1];
+	    for (int i = 0; i < contadores.length; i++) {
+	        nuevosContadores[i] = contadores[i];
+	    }
+	    nuevosContadores[contadores.length] = 1; 
+	    return nuevosContadores;
+	}
+	
+	
+	private static void usuarioMayorProcastinacion(String[][] mx) {
+	    String usuarioMax = "";
+	    int duracionMax = -1;
+
+	    for (int u = 0; u < listaUsuarios.length; u++) {
+	        String usuario = listaUsuarios[u][0];
+	        int duracionTotal = 0;
+
+	        for (int i = 0; i < mx.length; i++) {
+	            if (mx[i][0] == null || !mx[i][0].equals(usuario)) continue;
+	            duracionTotal += Integer.parseInt(mx[i][2]); // columna 2 = duración
+	        }
+
+	        if (duracionTotal > duracionMax) {
+	            duracionMax = duracionTotal;
+	            usuarioMax = usuario;
+	        }
+	    }
+
+	    System.out.println("Usuario con mayor procrastinación: " + usuarioMax 
+	        + " con " + duracionMax + " minutos totales");
+	}
 
 	private static boolean verificarUsuario(String usuario, String contraseña) {
 		/*funcion que revisa la matriz de usuarios y 
@@ -213,7 +392,8 @@ public class Main {
 
 		case "4":
 			System.out.println("Ingrese la nueva contraseña: ");
-			cambiarContraseña(sc);
+			String contraseña = sc.nextLine();
+			listaPosicion[1] = contraseña; 
 			// DEJARLO COMO PREGUNTA AL AYUDANTE
 			break;
 
@@ -245,16 +425,6 @@ public class Main {
 		System.out.println("Número invalido");
 			} 
 		return caso;
-	}
-	
-	private static void cambiarContraseña(Scanner sc) {
-		System.out.print("Ingrese su nueva contraseña");
-		String contraseña = sc.nextLine();
-		System.out.println(listaUsuarios[0][1]);
-		listaPosicion[1] = contraseña; 
-		System.out.println(listaUsuarios[0][1]);
-		System.out.println(listaPosicion[1]);
-			
 	}
 	
 	private static void printActividades(String usuario) { 
