@@ -21,7 +21,6 @@ public class Main {
 		guardarListas(listaUsuarios, "Usuarios");
 		guardarListas(listaActividades, "Registros");
 		menu();
-
 	}
 
 	private static void menu() throws IOException { // Menu principal donde estara el login y el menu analisis
@@ -253,6 +252,7 @@ public class Main {
 			lista[i] = partes;
 			i++;
 		}
+		lector.close();
 	}
 
 	private static void menuUsuarioVerificado(String usuario) throws IOException {
@@ -267,6 +267,7 @@ public class Main {
 
 		switch (opcion) {
 		case "1":
+			boolean agrego = false;
 			for (int i = 0; i < listaActividades.length; i++) {
 				if (listaActividades[i][0] == null || listaActividades[i][0] == "") {
 					listaActividades[i] = new String[4];
@@ -279,10 +280,11 @@ public class Main {
 			        listaActividades[i][3] = sc.nextLine();
 			        System.out.println("¡Actividad registrada correctamente!");
 			        modificarArchivo(listaActividades, "Registros.txt");
+			        agrego = true;
 			        break;
-			    } 
-			} System.out.println("¡No queda espacio para nuevas actividades!"); break;
-			
+				} 
+			} if (!agrego) System.out.println("¡No queda espacio para nuevas actividades!"); 
+			break; 
 		case "2":
 			System.out.println("¿Cual actividad deseas modificar?");
 				int seleccionModificar = recorrerActividades(usuario,sc);
