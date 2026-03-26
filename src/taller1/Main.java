@@ -233,7 +233,7 @@ public class Main {
 	    }
 
 	    System.out.println("Usuario con mayor procrastinación: " + usuarioMax 
-	        + " con " + duracionMax + " minutos totales");
+	        + " con " + duracionMax + " horas totales");
 	}
 
 	private static boolean verificarUsuario(String usuario, String contraseña) {
