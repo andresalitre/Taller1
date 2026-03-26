@@ -48,7 +48,6 @@ public class Main {
 			break;
 		case "2":
 			menuAnalisis(sc);
-
 			break;
 		case "3":
 			System.out.println("¡Ha salido correctamente!");
@@ -61,15 +60,15 @@ public class Main {
 	}
 	
 	private static void menuAnalisis(Scanner sc) throws IOException {
-		System.out.println("Bienvenido al menu de analisis!\r\n"
+		System.out.print("Bienvenido al menu de analisis!\r\n"
 				+ "\r\n"
-				+ "Que deseas realizar?\r\n"
+				+ "¿Que deseas realizar?\r\n"
 				+ "\r\n"
 				+ "1) Actividad más realizada\r\n"
 				+ "2) Actividad más realizada por cada usuario\r\n"
 				+ "3) Usuario con mayor procastinacion\r\n"
 				+ "4) Ver todas las actividades\r\n"
-				+ "5) Salir");
+				+ "5) Salir\n\nIngrese su opción: ");
 		
 		String eleccion = sc.nextLine();
 		String[] opciones = {"1", "2", "3", "4"};
@@ -81,7 +80,7 @@ public class Main {
 		        break;
 		    } else if(eleccion.equals("5")) {
 		    	System.out.println("Has salido correctamente");
-		    	menu();
+		    	break;
 		    }
 		}
 
@@ -274,8 +273,19 @@ public class Main {
 					listaActividades[i][0] = usuario;
 			        System.out.print("Ingrese fecha de la actividad: ");
 			        listaActividades[i][1] = sc.nextLine();
+			        int horas;
+			        String horaString;
 			        System.out.print("Ingrese horas de la actividad: ");
-			        listaActividades[i][2] = sc.nextLine();
+			        do {
+			            horaString = sc.nextLine();
+			            try {
+			                horas = Integer.valueOf(horaString);
+			                if (horas < 1) System.out.print("Ingrese una hora valida: ");
+			            } catch (NumberFormatException e) {
+			            	System.out.print("Ingrese una hora valida: "); horas = 0;
+			            }
+			        } while (horas < 1);
+			        listaActividades[i][2] = String.valueOf(horas);
 			        System.out.print("Ingrese la actividad: ");
 			        listaActividades[i][3] = sc.nextLine();
 			        System.out.println("¡Actividad registrada correctamente!");
