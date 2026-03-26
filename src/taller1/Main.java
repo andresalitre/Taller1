@@ -72,26 +72,23 @@ public class Main {
 				+ "5) Salir");
 		
 		String eleccion = sc.nextLine();
-		switch (eleccion) {
-		case "1":
-			recorrer(listaActividades, eleccion);
-			// hay que mejorar la lógica del switch pero funciona
-			break;
-		case "2":
-			recorrer(listaActividades, eleccion);
-			break;
-		case "3":
-			recorrer(listaActividades, eleccion);
-			break;
-		case "4":
-			recorrer(listaActividades, eleccion);
-			break;
-		case "5":
-			menu();
-			break;
-		default:
-			System.out.println("Opción no valida, ingrese nuevamente");
-			break;
+		String[] opciones = {"1", "2", "3", "4"};
+
+		boolean valida = false;
+		for (String opcion : opciones) {
+		    if (opcion.equals(eleccion)) {
+		        valida = true;
+		        break;
+		    } else if(eleccion.equals("5")) {
+		    	System.out.println("Has salido correctamente");
+		    	menu();
+		    }
+		}
+
+		if (valida) {
+		    recorrer(listaActividades, eleccion);
+		} else {
+		    System.out.println("Opción no válida");
 		}
 	
 	}
@@ -265,6 +262,7 @@ public class Main {
 			lista[i] = partes;
 			i++;
 		}
+		lector.close();
 	}
 
 	private static void menuUsuarioVerificado(String usuario) {
