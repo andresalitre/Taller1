@@ -1,4 +1,4 @@
-Catalina;01/03/2026;6;ser Batman por las noches
+Martin;01/03/2026;4;ser therian
 Catalina;01/03/2026;6;ser Batman por las noches
 Estefania;01/03/2026;3;investigar las cutiemarks
 Martin;02/03/2026;2;programar
@@ -177,7 +177,7 @@ Catalina;28/04/2026;7;ser Batman por las noches
 Estefania;28/04/2026;4;investigar las cutiemarks
 Martin;29/04/2026;2;Ver jujutsu
 Catalina;29/04/2026;3;Ver reels
-Martin;1;1;1
+Estefania;29/04/2026;2;programar
 Martin;30/04/2026;5;ser therian
 Catalina;30/04/2026;6;ser Batman por las noches
 Estefania;30/04/2026;5;investigar las cutiemarks
@@ -190,111 +190,111 @@ Estefania;02/05/2026;4;investigar las cutiemarks
 Martin;03/05/2026;1;Ver reels
 Catalina;03/05/2026;2;Ver jujutsu
 Estefania;03/05/2026;3;estudiar
-Martin;12/65/1223;12;76
+Martin;04/05/2026;4;ser therian
 Catalina;04/05/2026;7;ser Batman por las noches
 Estefania;04/05/2026;3;investigar las cutiemarks
-Catalina;01/03/2026;6;ser Batman por las noches
+Martin;05/05/2026;2;estudiar
 Catalina;05/05/2026;1;programar
 Estefania;05/05/2026;2;Ver mlp
-Catalina;01/03/2026;6;ser Batman por las noches
+
 Catalina;06/05/2026;6;ser Batman por las noches
-Catalina;06/05/2026;6;ser Batman por las noches
-Martin;123;123;123
-Martin;1;1;1
-Martin;123;123;123
-Martin;1;1;1
-Martin;123;123;123
-Martin;123;123;123
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;dksakdakd;askdkasdka;skdaskdaksd
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
-Martin;123;5345;543534534
-Martin;123131;13213213;1231312
-Martin;1231312;123123213;asdad
-Martin;dasdkasd;adksdkaskd;asdkaskdas
-Martin;12;145;235
-Martin;123;123;123
-Martin;hoy;2;hola
-Martin;123;432;566666
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

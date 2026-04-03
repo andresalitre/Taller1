@@ -48,7 +48,6 @@ public class Main {
 			break;
 		case "2":
 			menuAnalisis(sc);
-
 			break;
 		case "3":
 			System.out.println("¡Ha salido correctamente!");
@@ -61,15 +60,15 @@ public class Main {
 	}
 	
 	private static void menuAnalisis(Scanner sc) throws IOException {
-		System.out.println("Bienvenido al menu de analisis!\r\n"
+		System.out.print("Bienvenido al menu de analisis!\r\n"
 				+ "\r\n"
-				+ "Que deseas realizar?\r\n"
+				+ "¿Que deseas realizar?\r\n"
 				+ "\r\n"
 				+ "1) Actividad más realizada\r\n"
 				+ "2) Actividad más realizada por cada usuario\r\n"
 				+ "3) Usuario con mayor procastinacion\r\n"
 				+ "4) Ver todas las actividades\r\n"
-				+ "5) Salir");
+				+ "5) Salir\n\nIngrese su opción: ");
 		
 		String eleccion = sc.nextLine();
 		String[] opciones = {"1", "2", "3", "4"};
@@ -81,7 +80,7 @@ public class Main {
 		        break;
 		    } else if(eleccion.equals("5")) {
 		    	System.out.println("Has salido correctamente");
-		    	menu();
+		    	break;
 		    }
 		}
 
@@ -241,18 +240,19 @@ public class Main {
 	}
 
 	private static void guardarListas(String[][] lista, String archivo) throws FileNotFoundException {
-		/*Esta función guarda en matrices los valores de los archivos, se llama a la matriz y el nombre del archivo
-		 * para guardar en contenido del archivo en la matriz
-		 */
-		Scanner lector = new Scanner(new File(archivo + ".txt"));
-		int i = 0;
-		while (lector.hasNextLine()) {
-			String linea = lector.nextLine();
-			String[] partes = linea.split(";");
-			lista[i] = partes;
-			i++;
-		}
-		lector.close();
+	    Scanner lector = new Scanner(new File(archivo + ".txt"));
+	    int i = 0;
+	    while (lector.hasNextLine() && i < lista.length) {
+	        String linea = lector.nextLine();
+	        if (linea.trim().isEmpty()) {
+	            i++;
+	            continue;
+	        }
+	        String[] partes = linea.split(";");
+	        lista[i] = partes;
+	        i++;
+	    }
+	    lector.close();
 	}
 
 	private static void menuUsuarioVerificado(String usuario) throws IOException {
@@ -274,8 +274,19 @@ public class Main {
 					listaActividades[i][0] = usuario;
 			        System.out.print("Ingrese fecha de la actividad: ");
 			        listaActividades[i][1] = sc.nextLine();
+			        int horas;
+			        String horaString;
 			        System.out.print("Ingrese horas de la actividad: ");
-			        listaActividades[i][2] = sc.nextLine();
+			        do {
+			            horaString = sc.nextLine();
+			            try {
+			                horas = Integer.valueOf(horaString);
+			                if (horas < 1) System.out.print("Ingrese una hora valida: ");
+			            } catch (NumberFormatException e) {
+			            	System.out.print("Ingrese una hora valida: "); horas = 0;
+			            }
+			        } while (horas < 1);
+			        listaActividades[i][2] = String.valueOf(horas);
 			        System.out.print("Ingrese la actividad: ");
 			        listaActividades[i][3] = sc.nextLine();
 			        System.out.println("¡Actividad registrada correctamente!");
@@ -354,7 +365,6 @@ public class Main {
 				
 	}
 			break;
-
 		case "3": 
 			/* Se usa la funcion "recorrerActividades" para que retorne el valor de la posicion de la actividad que se va a 
 			 eliminar */
@@ -373,17 +383,14 @@ public class Main {
 						if (usuario.equals(listaActividades[i][0])) {
 							if (seleccionEliminar == 0) {
 								listaActividades[i] = new String[4]; /* se reemplaza la actividad (usuario,fecha,hora,actividad) por una 
-																								variable vacia (null,null,null,null) para simular que se ha eliminado*/
+																variable vacia (null,null,null,null) para simular que se ha eliminado*/
 								break;
 							} else seleccionEliminar = seleccionEliminar - 1;
 						}
 					}
 					System.out.println("¡Actividad eliminada con exito!");
-					modificarArchivo(listaActividades, "Registros.txt");
-					
+					modificarArchivo(listaActividades, "Registros.txt");	
 				break;
-				
-				
 				case "2":
 					System.out.println("Volviendo al menu de usuario.");
 				break;
