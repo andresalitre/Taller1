@@ -97,7 +97,7 @@ public class Main {
 	    int duracionMax = -1;
 
 	    for (int u = 0; u < listaUsuarios.length; u++) {
-	        String usuario = listaUsuarios[u][0];
+	        String usuario = listaUsuarios[u][0];    
 	        int duracionTotal = 0;
 
 	        for (int i = 0; i < mx.length; i++) {
@@ -126,7 +126,7 @@ public class Main {
 	
 	private static String[] agregarActividad(String[] listaUnica, String datoNuevo) {
 	    String[] nuevaLista = new String[listaUnica.length + 1];
-	    for (int i = 0; i < listaUnica.length; i++) {
+	    for (int i = 0; i < listaUnica.length; i++) { 
 	        nuevaLista[i] = listaUnica[i];
 	    }
 	    nuevaLista[listaUnica.length] = datoNuevo;
@@ -135,7 +135,7 @@ public class Main {
 	
 	private static void recorrer(String[][] mx, String opcion) {
 	    String[] listaActividadUnica = new String[0];
-	    int[] contadores = new int[0]; 
+	    int[] contadores = new int[0];      
 
 	    for (int i = 0; i < mx.length; i++) {
 	        if (mx[i][3] == null) continue;
@@ -144,7 +144,7 @@ public class Main {
 	        
 	
 	        boolean encontrado = false;
-	        for (int j = 0; j < listaActividadUnica.length; j++) {
+	        for (int j = 0; j < listaActividadUnica.length; j++) { //rellena contadores para ver en cada actividad única
 	            if (listaActividadUnica[j].equals(datoActual)) {
 	                contadores[j]++; 
 	                encontrado = true;
@@ -157,7 +157,7 @@ public class Main {
 	            contadores = agregarContador(contadores);
 	        }
 	    }
-	    switch (opcion) {
+	    switch (opcion) { // reenvía dependiendo de lo que se busca en el menú
 		case "1":
 			actividadMasRealizada(listaActividadUnica, contadores);
 			
@@ -183,12 +183,12 @@ public class Main {
 
 	        for (int i = 0; i < mx.length; i++) {
 	            if (mx[i][0] == null || !mx[i][0].equals(usuario)) continue;
-
+	            //evita que explote si encuentra una casilla nula
 	            String actividad = mx[i][3];
 	            boolean encontrado = false;
 
 	            for (int j = 0; j < actividadesUsuario.length; j++) {
-	                if (actividadesUsuario[j].equals(actividad)) {
+	                if (actividadesUsuario[j].equals(actividad)) { //busca que sea la actividad del usuario
 	                    contadoresUsuario[j]++;
 	                    encontrado = true;
 	                    break;
@@ -217,7 +217,7 @@ public class Main {
 		int[] lista = {-1, 0};
 		
 		for(int i = 0; i < listaUnica.length; i++) {
-			if(contadores[i] > lista[0]) { // falta poner algo por si llega el contador o lista nulo
+			if(contadores[i] > lista[0]) { // busca el contador más alto de los que entrega la lista de contadores
 				lista[0] = contadores[i];
 				lista[1] = i;
 			}
@@ -437,7 +437,7 @@ public class Main {
 	
 	private static void cambiarContraseña(Scanner sc) throws IOException {
 		String contraseña = sc.nextLine();
-		listaPosicion[1] = contraseña; 
+		listaPosicion[1] = contraseña; //cambia contraseña a la de la lista que se guardó en el inicio de sesión
 		modificarArchivo(listaUsuarios, "Usuarios.txt");
 	}
 	
